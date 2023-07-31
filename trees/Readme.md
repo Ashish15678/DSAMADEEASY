@@ -43,3 +43,27 @@ struct BinaryTreeNode
 ## Traversal in Binary trees
 
 # Possibilities
+
+1.  PreOrder
+2.  InOrder
+3.  PostOrder
+
+4.  PreOrder Traversal
+    ~ Each node is preprocessed before either of its subtrees .Even though the node is processed before the subtrees but some information has to be stored while moving down the tree.
+    For eg. if we are using LDR then we must first visit the left node and then move forward to right node but in this process some information should be stored and maintained. Stack is the best data structure for such since it has LIFO structure.
+
+        a. Visit root
+        b. Visit left node(preOrder)
+        c. Visit right node(preOrder)
+
+    `Method for the same`
+
+    ```C
+    void preOrder(struct BinaryTreeNode *root)
+    {if(root){
+    printf("%d",root->data);
+    preOrder(root->left);
+    preOrder(root->right);
+    }}
+
+    ```
