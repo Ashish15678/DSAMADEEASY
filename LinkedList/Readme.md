@@ -215,7 +215,7 @@ struct ListNode *head = NULL;
 void insertAtHead(int data)
 {
     struct ListNode *temp;
-    // initializing new node with the help of malloc
+    initializing new node with the help of malloc
     temp = (struct ListNode *)malloc(sizeof(struct ListNode));
 
     temp->data = data;
@@ -382,4 +382,133 @@ void deleteTailNode()
 
 ### Deletion of Node at intermediate position
 
-1. jai shree ram 
+1.  void deleteIntermediateNode(int position)
+    {
+    int i = 0;
+    struct ListNode *headCopy = head;
+    struct ListNode *prev, \*next;
+    if (head == NULL)
+    {
+    printf("List is empty");
+    return;
+    }
+
+        // reaching n-1 node
+        while (i != position)
+        {
+            prev = headCopy;
+            headCopy = headCopy->next;
+            next = headCopy->next;
+        }
+        prev->next = next;
+        next->prev = prev;
+        free(headCopy);
+        printf("Success");
+
+    }
+
+# Circular Linked Lists
+
+## Declaration
+
+```c
+struct ListNode{int data ; struct ListNode *next};
+```
+
+## Printing the contents of Circular Linked List
+
+```c
+void printList()
+{
+    // headCopy copies head and then points to all node while traversing the list
+    struct ListNode *headCopy = head;
+
+    if (head == NULL)
+    {
+        printf("List is empty");
+    }
+    do
+    {
+        printf("%d", headCopy->data);
+        headCopy = headCopy->next;
+
+    } while (headCopy != head);
+}
+
+```
+
+## Insertion
+
+`Possibilities`
+
+1. At head position
+
+### At Head
+
+1. Check if head is not null (if list exists).
+2. if list exists assign current head to next of newly created node with data provided.
+3. if list does not exist , create new temporary node to hold data passed and assign head to the address of newly created node.
+
+```c
+void insertAtHead(int data)
+{
+    struct ListNode *temp = (struct ListNode *)malloc(sizeof(struct ListNode));
+
+    // check for memory error
+    if (!temp)
+    {
+        printf("Memory error ... new node not created");
+        return;
+    }
+
+    temp->data = data;
+    if (head == NULL)
+    {
+        temp->next = temp;
+        head = temp;
+        return;
+    }
+    else
+    {
+        temp->next = head;
+        head = temp;
+    }
+}
+```
+
+## Deletion
+
+`Possibilities`
+
+1.  Deleting head node
+
+### Deleting Head Node
+
+```c
+
+void deletingHeadNode()
+{
+    struct ListNode *cur;
+    struct ListNode *temp = head;
+    head = head->next;
+    while (cur->next != temp)
+    {
+        cur = cur->next;
+    }
+    cur->next = head;
+    free(temp);
+}
+```
+
+# Very Useful things ahead But ill solve problems first(TODO: COMPLETE THIS ALL)
+
+# Memory efficient Doubly Linked List
+
+## Declaration
+
+```c
+struct ListNode {
+int data;
+struct ListNode *ptrDiff;
+};
+```

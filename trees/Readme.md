@@ -1,4 +1,4 @@
-### Trees
+# Trees
 
 ## Why trees?
 
@@ -11,7 +11,7 @@
 3. Binary search tree which supports search,insertion and deletion on a collection of items in O(log n) time complexity(average)
 4. Priority Queue which supports search and deletion of minimum or maximum on a collection of items in logarithmic time(worst case)
 
-# Declaration
+## Declaration
 
 `~ using C to implement this`
 
@@ -26,7 +26,7 @@ struct BinaryTreeNode
 
 ```
 
-# Operations performable on trees
+## Operations performable on trees
 
 1. Basic Operations
    a. Insertion
@@ -42,7 +42,7 @@ struct BinaryTreeNode
 
 ## Traversal in Binary trees
 
-# Possibilities
+### Possibilities
 
 1.  PreOrder
 2.  InOrder
@@ -60,10 +60,19 @@ struct BinaryTreeNode
 
     ```C
     void preOrder(struct BinaryTreeNode *root)
-    {if(root){
+    {
+        if(root){
     printf("%d",root->data);
     preOrder(root->left);
     preOrder(root->right);
-    }}
+
+    }
+    }
+
+    ```
+
+    `non recursive method using stack `
+
+    ```c
 
     ```

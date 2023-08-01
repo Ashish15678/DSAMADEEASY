@@ -9,6 +9,8 @@ struct ListNode
     struct ListNode *next;
 };
 
+
+
 struct ListNode *head = NULL;
 
 void insertAtHead(int data)
@@ -137,9 +139,48 @@ void deleteTailNode()
     free(temp);
 }
 
+void deleteIntermediateNode(int position)
+{
+    int i = 0;
+    struct ListNode *headCopy = head;
+    struct ListNode *prev, *next;
+    if (head == NULL)
+    {
+        printf("List is empty");
+        return;
+    }
+
+    // reaching n-1 node
+    while (i != position)
+    {
+        prev = headCopy;
+        headCopy = headCopy->next;
+        next = headCopy->next;
+    }
+    prev->next = next;
+    next->prev = prev;
+    free(headCopy);
+    printf("Success");
+}
+
+void print()
+{
+    struct ListNode *headCopy = head;
+    while (headCopy->next == NULL)
+    {
+        printf("\n %d ", headCopy->data);
+        headCopy = headCopy->next;
+    }
+}
+
 int main(int argc, char const *argv[])
 {
     insertAtHead(1);
-    insertAtHead(2);
-    return 0;
+    insertAtLast(2);
+    insertAtIntermediate(3, 1);
+    deleteHeadNode();
+    // deleteTailNode();
+    // deleteIntermediateNode(0);
+    // fix these funuctions
+    print();
 }
