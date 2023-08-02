@@ -48,3 +48,6 @@ struct Stack *createStack()
 ```
 
 4. Creating All other necessary Functions used in stack
+```c
+// size counter
+```
